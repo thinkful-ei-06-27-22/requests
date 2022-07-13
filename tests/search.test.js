@@ -71,6 +71,7 @@ describe('search.js', () => {
         })
 
         it('should make a POST request to the correct URL', async () => {
+            axios.post.mockImplementation(() => Promise.resolve({ data:data[0] }));
             await addConst(data[0]);
             expect(axios.post).toHaveBeenCalledWith(requestUrl,data[0]);
         })
